@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="../../../assets/img/registro.jpg" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <h1 class="titulo-login">Gestión de Hoteles</h1>
+              </div>
+              <form action="#!">
+                <p class="login-card-description">Registrarse</p>
+                  <div class="form-group">
+                    <label for="nombre" class="sr-only">Nombre</label>
+                  </div>
+                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                  <div class="form-group">
+                    <label for="usuario" class="sr-only">Usuario</label>
+                  </div>
+                  <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario">
+                  <div class="form-group mb-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                  </div>
+                  <a routerLink="/hoteles-usuario" routerLinkActive="active" class="btn btn-block login-btn mb-4">Registrarse</a>
+                </form>
+                <p class="login-card-footer-text">Ya tienes una cuenta? <a routerLink="/login" routerLinkActive="active" class="text-reset">Inicia sesión aquí</a>
+                <br><br>Si quieres regresas al inicio haz <a routerLink="/inicio" routerLinkActive="active" class="text-reset">clic aquí</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
