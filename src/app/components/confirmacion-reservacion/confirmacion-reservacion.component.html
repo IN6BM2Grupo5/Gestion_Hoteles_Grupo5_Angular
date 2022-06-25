@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0 ">
+    <div class="container ">
+      <div class="card">
+        <div class="card-body mx-4">
+          <div class="container">
+            <p class="my-5 mx-5 titulo-login">Reservación</p>
+            <div class="row">
+              <ul class="list-unstyled">
+                <li class="text-black">Brandon Palma</li>
+                <li class="text-muted mt-1"><span class="text-black">Factura</span> #12345</li>
+                <li class="text-black mt-1">April 17 2021</li>
+              </ul>
+              <hr>
+              <div class="col-xl-10">
+                <p>Habitación C-19</p>
+              </div>
+              <div class="col-xl-2">
+                <p class="float-end">Q5100.00
+                </p>
+              </div>
+              <hr>
+            </div>
+            <div class="row">
+              <div class="col-xl-10">
+                <p>Servicio - Limpieza</p>
+              </div>
+              <div class="col-xl-2">
+                <p class="float-end">Q300.00
+                </p>
+              </div>
+              <hr>
+            </div>
+            <div class="row">
+              <div class="col-xl-10">
+                <p>Servicio - Comida</p>
+              </div>
+              <div class="col-xl-2">
+                <p class="float-end">Q100.00
+                </p>
+              </div>
+              <hr style="border: 2px solid black;">
+            </div>
+            <div class="row text-black">
+
+              <div class="col-xl-12">
+                <p class="float-end fw-bold">Total: Q1500.00
+                </p>
+              </div>
+              <hr style="border: 2px solid black;">
+            </div>
+
+
+            <div class="margen">
+              <button type="button" class="btn btn-info" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/reservaciones-pendientes" routerLinkActive="active"
+                aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </svg>
+                Aceptar
+              </button>
+            </div>
+
+
+            <div class="text-center" style="margin-top: 90px;">
+              <p>Al aceptar la reservación se compromete a pagar todos los servicios adquirios sin exepción alguna. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

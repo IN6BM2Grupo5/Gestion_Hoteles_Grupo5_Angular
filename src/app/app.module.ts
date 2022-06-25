@@ -18,6 +18,12 @@ import { EditarCuentaComponent } from './components/editar-cuenta/editar-cuenta.
 import { HabitacionesAdminComponent } from './components/habitaciones-admin/habitaciones-admin.component';
 import { UsuariosHospedadosComponent } from './components/usuarios-hospedados/usuarios-hospedados.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
+import { HabitacionesDisponiblesComponent } from './components/habitaciones-disponibles/habitaciones-disponibles.component';
+import { FacturacionComponent } from './components/facturacion/facturacion.component';
+import { ConfirmacionReservacionComponent } from './components/confirmacion-reservacion/confirmacion-reservacion.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReservacionesPendientesComponent } from './components/reservaciones-pendientes/reservaciones-pendientes.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { AdministradoresComponent } from './components/administradores/administr
     EditarCuentaComponent,
     HabitacionesAdminComponent,
     UsuariosHospedadosComponent,
-    AdministradoresComponent
+    AdministradoresComponent,
+    ReservacionesComponent,
+    HabitacionesDisponiblesComponent,
+    FacturacionComponent,
+    ConfirmacionReservacionComponent,
+    NavbarComponent,
+    ReservacionesPendientesComponent
   ],
   imports: [
     BrowserModule,

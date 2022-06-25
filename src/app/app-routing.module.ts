@@ -16,26 +16,44 @@ import { EditarCuentaComponent } from './components/editar-cuenta/editar-cuenta.
 import { HabitacionesAdminComponent } from './components/habitaciones-admin/habitaciones-admin.component';
 import { UsuariosHospedadosComponent } from './components/usuarios-hospedados/usuarios-hospedados.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
+import { HabitacionesDisponiblesComponent } from './components/habitaciones-disponibles/habitaciones-disponibles.component';
+import { FacturacionComponent } from './components/facturacion/facturacion.component';
+import { ConfirmacionReservacionComponent } from './components/confirmacion-reservacion/confirmacion-reservacion.component';
+import { ReservacionesPendientesComponent } from './components/reservaciones-pendientes/reservaciones-pendientes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio',  pathMatch: 'full'},
+
+  // Generales
   { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent},
 
-  { path: 'usuarios-registrados', component: UsuariosRegistradosComponent},
-  { path: 'hoteles-admin', component: HotelesAdminAppComponent},
-  { path: 'habitaciones-admin', component: HabitacionesAdminComponent},
-  { path: 'estadistica-general', component: EstadisticaGeneralComponent},
-  { path: 'estadistica-reporte', component: EstadisticaReporteHotelComponent},
-  { path: 'administradores', component: AdministradoresComponent},
 
+  // Usuario
   { path: 'registro', component: RegistroComponent},
   { path: 'hoteles-usuario', component: HotelesUsuarioComponent},
   { path: 'habitaciones-usuario', component: HabitacionesUsuarioComponent},
+  { path: 'reservaciones-pendientes', component: ReservacionesPendientesComponent},
+  { path: 'confirmar-reservacion', component:ConfirmacionReservacionComponent},
   { path: 'historial', component: HistorialComponent},
   { path: 'editar-cuenta', component:EditarCuentaComponent},
 
+
+  // Administrador Aplicacion
+  { path: 'usuarios-registrados', component: UsuariosRegistradosComponent},
+  { path: 'hoteles-admin', component: HotelesAdminAppComponent},
+  { path: 'habitaciones-admin', component: HabitacionesAdminComponent},
+  { path: 'administradores', component: AdministradoresComponent},
+  { path: 'estadistica-general', component: EstadisticaGeneralComponent},
+  { path: 'estadistica-reporte', component: EstadisticaReporteHotelComponent},
+
+
+  // Administrador Hotel
+  { path: 'reservaciones', component: ReservacionesComponent},
   { path: 'usuarios-hospedados', component: UsuariosHospedadosComponent},
+  { path: 'habitaciones-disponibles', component: HabitacionesDisponiblesComponent},
+  { path: 'facturar', component: FacturacionComponent},
 ];
 
 @NgModule({
