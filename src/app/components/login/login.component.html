@@ -32,12 +32,12 @@
                   <div class="form-group">
                     <label for="usuario" class="sr-only">Usuario</label>
                   </div>
-                  <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario">
+                  <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" [(ngModel)]="usuarioModel.usuario">
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña"  [(ngModel)]="usuarioModel.password">
                   </div>
-                  <a routerLink="/hoteles-usuario" routerLinkActive="active" class="btn btn-block login-btn mb-4">Ingresar</a>
+                  <a (click)="login()" routerLinkActive="active" class="btn btn-block login-btn mb-4">Ingresar</a>
                 </form>
                 <p class="login-card-footer-text">Aun no tienes una cuenta? <a routerLink="/registro" routerLinkActive="active" class="text-reset">Registrate aquí</a>
                 <br><br>Si quieres regresas al inicio haz <a routerLink="/inicio" routerLinkActive="active" class="text-reset">clic aquí</a></p>

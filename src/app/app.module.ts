@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ChartsModule } from '@rinminase/ng-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +26,9 @@ import { FacturacionComponent } from './components/facturacion/facturacion.compo
 import { ConfirmacionReservacionComponent } from './components/confirmacion-reservacion/confirmacion-reservacion.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReservacionesPendientesComponent } from './components/reservaciones-pendientes/reservaciones-pendientes.component';
+import { InicioUsuarioComponent } from './components/inicio-usuario/inicio-usuario.component';
+import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
+import { InicioHotelComponent } from './components/inicio-hotel/inicio-hotel.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +52,17 @@ import { ReservacionesPendientesComponent } from './components/reservaciones-pen
     FacturacionComponent,
     ConfirmacionReservacionComponent,
     NavbarComponent,
-    ReservacionesPendientesComponent
+    ReservacionesPendientesComponent,
+    InicioUsuarioComponent,
+    InicioAdminComponent,
+    InicioHotelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

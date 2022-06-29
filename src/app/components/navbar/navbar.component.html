@@ -1,32 +1,24 @@
 <div class="area"></div><nav class="main-menu">
   <ul>
     <!-- Funciones de Usuario -->
-    <li class="has-subnav">
-      <a class="nav-link" routerLink="/hoteles-usuario">
-          <i class="fa fa-user fa-2x"></i>
-          <span class="nav-text">
-              Usuario
-          </span>
-      </a>
-    </li>
-    <li class="has-subnav">
-      <a class="nav-link " routerLink="/hoteles-usuario">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Cliente'">
+      <a class="nav-link " routerLink="/usuario/hoteles-usuario">
           <i class="fa fa-building-o fa-2x "></i>
           <span class="nav-text">
               Hoteles
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link " routerLink="/historial">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Cliente'">
+      <a class="nav-link " routerLink="/usuario/historial">
           <i class="fa fa-clock-o fa-2x "></i>
           <span class="nav-text">
               Historial
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link " routerLink="/reservaciones-pendientes">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Cliente'">
+      <a class="nav-link " routerLink="/usuario/reservaciones-pendientes">
           <i class="fa fa-calendar-o fa-2x"></i>
           <span class="nav-text">
               Reservaciones Por Confirmar
@@ -35,40 +27,32 @@
     </li>
 
     <!-- Funciones de Administrador Aplicacion -->
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/hoteles-admin">
-          <i class="fa fa-user fa-2x"></i>
-          <span class="nav-text">
-              Admin App
-          </span>
-      </a>
-    </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/usuarios-registrados">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_APP'">
+      <a class="nav-link"  routerLink="/admin/usuarios-registrados">
           <i class="fa fa-users fa-2x"></i>
           <span class="nav-text">
               Usuarios Registrados
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/hoteles-admin">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_APP'">
+      <a class="nav-link"  routerLink="/admin/hoteles-admin">
           <i class="fa fa-building-o fa-2x"></i>
           <span class="nav-text">
               Hoteles
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/habitaciones-admin">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_APP'">
+      <a class="nav-link"  routerLink="/admin/habitaciones-admin">
           <i class="fa fa-sitemap fa-2x"></i>
           <span class="nav-text">
               Habitaciones
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/administradores">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_APP'">
+      <a class="nav-link"  routerLink="/admin/administradores">
           <i class="fa fa-desktop fa-2x"></i>
           <span class="nav-text">
               Administradores
@@ -77,32 +61,24 @@
     </li>
 
     <!-- Funciones de Administrador Hotel -->
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/habitaciones-disponibles">
-          <i class="fa fa-user fa-2x"></i>
-          <span class="nav-text">
-              Admin Hotel
-          </span>
-      </a>
-    </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/reservaciones">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_Hotel'">
+      <a class="nav-link"  routerLink="/hotel/reservaciones">
           <i class="fa fa-calendar fa-2x"></i>
           <span class="nav-text">
               Reservaciones
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/usuarios-hospedados">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_Hotel'">
+      <a class="nav-link"  routerLink="/hotel/usuarios-hospedados">
           <i class="fa fa-users fa-2x"></i>
           <span class="nav-text">
               Usuarios Hospedados
           </span>
       </a>
     </li>
-    <li class="has-subnav">
-      <a class="nav-link"  routerLink="/habitaciones-disponibles">
+    <li class="has-subnav" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_Hotel'">
+      <a class="nav-link"  routerLink="/hotel/habitaciones-disponibles">
           <i class="fa fa-sitemap fa-2x"></i>
           <span class="nav-text">
               Habitaciones
@@ -115,18 +91,26 @@
   <!-- Funciones Inferiores -->
   <ul class="user">
     <li>
-      <a class="nav-link " routerLink="/editar-cuenta">
+      <a class="nav-link " routerLink="/usuario/editar-cuenta"  *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Cliente'">
         <i class="fa fa-user fa-2x"></i>
         <span class="nav-text">
-          Cuenta
+          Cliente:  {{usuario}}
         </span>
       </a>
+      <i class="fa fa-user fa-2x" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_APP'"></i>
+        <span class="nav-text" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_APP'">
+          Admin: {{usuario}}
+        </span>
+        <i class="fa fa-user fa-2x" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_Hotel'"></i>
+        <span class="nav-text" *ngIf="_UsuariosService.obtenerIdentidad().rol === 'Admin_Hotel'">
+          Admin Hotel: {{usuario}}
+        </span>
     </li>
 </ul>
 
   <ul class="logout">
     <li>
-      <a class="nav-link" routerLink="/login">
+      <a class="nav-link" (click)="logOut()" routerLink="/login">
         <i class="fa fa-power-off fa-2x"></i>
         <span class="nav-text">
             Cerrar Sesión

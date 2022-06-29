@@ -27,22 +27,11 @@
           <p class="text-center">Los usuarios que se han registrado en el gestor de hoteles son los que se encontraran a continuacion.</p>
       </div>
       <div class="row people">
-        <div class="col-md-6 col-lg-4 item">
+        <div class="col-md-6 col-lg-4 item" *ngFor="let usuario of UsuariosModelGet">
           <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">Juan Solís</h3>
-            <p class="title">Usuario</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-          <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">Brandon Palma</h3>
-            <p class="title">Usuario</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-          <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">Enrique Hurtarte</h3>
-            <p class="title">Usuario</p>
+            <h3 class="name">{{usuario.usuario}}</h3>
+            <p class="title" *ngIf="usuario.rol === 'Cliente'">Cliente</p>
+            <p class="title" *ngIf="usuario.rol === 'Admin_Hotel'">Administrador de Hotel</p>
           </div>
         </div>
       </div>
