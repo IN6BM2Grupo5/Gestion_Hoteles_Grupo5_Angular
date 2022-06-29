@@ -52,7 +52,7 @@
           <p>ID: 1264857</p>
           <p>Dirección: Zona 0</p>
           <p>Administrador: Persona X</p>
-          <button type="button" class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/habitaciones-admin" routerLinkActive="active"
+          <button type="button" class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/admin/habitaciones-admin" routerLinkActive="active"
             aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
               <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
               <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
@@ -87,32 +87,33 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #addHotelForm="ngForm">
           <div class="mb-3">
             <label for="inputNombre" class="form-label">Nombre Hotel</label>
-            <input type="text" class="form-control" id="inputNombre" name="nombreHotel" #nombreHotel=""  autocomplete="off">
+            <input type="text" class="form-control" id="inputNombre" name="nombreHotel" #nombreHotel=""  autocomplete="off" [(ngModel)]="HotelesModel.nombreHotel">
           </div>
           <div class="mb-3">
             <label for="inputDireccion" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="inputDireccion" name="nombreProveedor" #nombreProveedor="" autocomplete="off">
+            <input type="text" class="form-control" id="inputDireccion" name="nombreProveedor" #nombreProveedor="" autocomplete="off" [(ngModel)]="HotelesModel.direccion">
           </div>
           <div>
             <label for="inputMunicipio" class="form-label">Municipio</label>
-            <select class="form-select" id="inputMunicipio" name="municipio" #municipio="" >
-              <!--<option *ngFor="let municipio of municipios" value="{{ municipio.nombre }}" >{{municipio.nombre}}</option>-->
+            <select class="form-select" id="inputMunicipio" name="municipio" #municipio="ngModel" [(ngModel)]="HotelesModel.municipio">
+              <option *ngFor="let municipio of municipios" value="{{ municipio.nombre }}" >{{municipio.nombre}}</option>
             </select>
           </div>
           <br>
           <div>
             <label for="inputAdministrador" class="form-label">Administrador del Hotel</label>
-            <select class="form-select" id="inputAdministrador" name="administrador" #administrador="" >
+            <select class="form-select" id="inputAdministrador" name="administrador" #administrador="ngModel" [(ngModel)]="HotelesModel.usuario">
+              <option *ngFor="let usuario of UsuariosModelGet" value="{{ usuario.usuario}}" >{{ usuario.usuario }}</option>
             </select>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Agregar</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="agregar(addHotelForm)">Agregar</button>
       </div>
     </div>
   </div>

@@ -32,6 +32,12 @@ export class UsuariosService {
     return this._http.post(this.url+'/registrar', parametros, {headers: this.headersVariable})
   }
 
+  agregarAdmin(modeloUsuario: usuarios, token): Observable<any>{
+    let parametros = JSON.stringify(modeloUsuario);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.post(this.url+'/agregarAdmin', parametros, {headers: headersToken})
+  }
 
   obtenerToken(){
     var token2 = localStorage.getItem("token");
@@ -59,6 +65,12 @@ export class UsuariosService {
     let headersToken = this.headersVariable.set('Authorization', token)
 
     return this._http.get(this.url + '/usuarios', { headers: headersToken })
+  }
+
+  obtenerAdminsHoteles(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/Admins', { headers: headersToken })
   }
 
   obtenerUsuariosId(id : String, token): Observable<any> {

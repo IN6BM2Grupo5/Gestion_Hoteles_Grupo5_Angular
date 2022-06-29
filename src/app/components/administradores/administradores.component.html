@@ -27,16 +27,16 @@
 
 
   <div class="row">
-    <div class="col-12 col-md-4 py-3" >
+    <div class="col-12 col-md-4 py-3" *ngFor="let usuario of UsuariosModelGet">
 
       <div class="card text-center" >
         <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
         </div>
         <div class="card-content">
             <h2 class="card-title"></h2>
-            <p>ID: </p>
-            <p>Nombre:</p>
-            <p>Usuario:</p>
+            <p>ID: {{usuario._id}}</p>
+            <p>Nombre: {{usuario.nombre}}</p>
+            <p>Usuario: {{usuario.usuario}}</p>
         </div>
       </div>
     </div>
@@ -53,24 +53,24 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #addAdminForm="ngForm">
           <div class="mb-3">
             <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombrel=""  autocomplete="off">
+            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombrel=""  autocomplete="off" [(ngModel)]="usuarioModel.nombre">
           </div>
           <div class="mb-3">
             <label for="inputUsuario" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="" autocomplete="off">
+            <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="" autocomplete="off" [(ngModel)]="usuarioModel.usuario">
           </div>
           <div class="mb-3">
             <label for="inputPassword" class="form-label">contraseña</label>
-            <input type="password" class="form-control" id="inputPassword" name="password" #password="" autocomplete="off">
+            <input type="password" class="form-control" id="inputPassword" name="password" #password="" autocomplete="off" [(ngModel)]="usuarioModel.password">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Agregar</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="registrar(addAdminForm)">Agregar</button>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ export class hoteles{
     public nombreHotel:String,
     public municipio: String,
     public direccion:String,
-    public idUsuario: String,
+    public usuario: String,
     public reservas: Number
   ){}
 }
