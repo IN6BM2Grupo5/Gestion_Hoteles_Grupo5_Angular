@@ -39,7 +39,7 @@
 
 
   <div class="row">
-    <div class="col-12 col-md-6 py-3">
+    <div class="col-12 col-md-6 py-3" *ngFor="let hotel of HotelesModelGet">
 
       <div class="card text-center" >
         <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80);">
@@ -48,10 +48,11 @@
           </div>
         </div>
         <div class="card-content">
-          <h2 class="card-title">Hotel Hilton</h2>
-          <p>ID: 1264857</p>
-          <p>Dirección: Zona 0</p>
-          <p>Administrador: Persona X</p>
+          <h2 class="card-title">{{hotel.nombreHotel}}</h2>
+          <p>ID: {{hotel._id}}</p>
+          <p>Municipio: {{hotel.municipio}}</p>
+          <p>Dirección: {{hotel.direccion}}</p>
+          <p>Administrador: {{hotel.usuario}}</p>
           <button type="button" class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/admin/habitaciones-admin" routerLinkActive="active"
             aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
               <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>

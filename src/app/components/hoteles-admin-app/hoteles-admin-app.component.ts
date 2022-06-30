@@ -59,7 +59,7 @@ export class HotelesAdminAppComponent implements OnInit {
     this._HotelesService.agregarHotel(this.HotelesModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
-
+        this.getHoteles()
         Swal.fire({
           icon: 'success',
           title: 'Operación exitosa',
@@ -98,8 +98,16 @@ export class HotelesAdminAppComponent implements OnInit {
     this._HotelesService.obtenerHoteles(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
           this.HotelesModelGet = response.hoteles;
+          for(let i = 0; i < response.hoteles.length; i++) {
+            this._UsuariosService.obtenerUsuariosId(this.HotelesModelGet[i].idUsuario, this._UsuariosService.obtenerToken()).subscribe(
+              (responseUsuario) => {
+                this.HotelesModelGet[i].usuario = responseUsuario.usuario.usuario;
+                console.log(this.HotelesModelGet[i])
+              }
+            )
 
-          console.log(response.hoteles)
+          }
+
       },
       (error) => {
         Swal.fire({
