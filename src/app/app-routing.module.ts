@@ -39,7 +39,7 @@ const routes: Routes = [
   // Usuario
   { path: 'usuario',  component: InicioUsuarioComponent, canActivate: [UsuarioGuard]  ,children: [
     { path: 'hoteles-usuario', component: HotelesUsuarioComponent},
-    { path: 'habitaciones-usuario', component: HabitacionesUsuarioComponent},
+    { path: 'habitaciones-usuario/:idHotel', component: HabitacionesUsuarioComponent},
     { path: 'reservaciones-pendientes', component: ReservacionesPendientesComponent},
     { path: 'confirmar-reservacion', component:ConfirmacionReservacionComponent},
     { path: 'historial', component: HistorialComponent},
@@ -50,7 +50,7 @@ const routes: Routes = [
   { path: 'admin',  component: InicioAdminComponent, canActivate: [AdminGuard]  ,children: [
   { path: 'usuarios-registrados', component: UsuariosRegistradosComponent},
   { path: 'hoteles-admin', component: HotelesAdminAppComponent},
-  { path: 'habitaciones-admin', component: HabitacionesAdminComponent},
+  { path: 'habitaciones-admin/:idHotel', component: HabitacionesAdminComponent},
   { path: 'administradores', component: AdministradoresComponent},
   { path: 'estadistica-general', component: EstadisticaGeneralComponent},
   { path: 'estadistica-reporte', component: EstadisticaReporteHotelComponent},

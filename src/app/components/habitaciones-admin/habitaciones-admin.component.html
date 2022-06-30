@@ -12,7 +12,7 @@
               <div class="page-caption">
                   <h1 class="page-title"><svg xmlns="http://www.w3.org/2000/svg" width="75" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
                     <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
-                  </svg> Hotel Hilton</h1>
+                  </svg> {{nombreHotel}}</h1>
               </div>
           </div>
       </div>
@@ -41,13 +41,13 @@
     <div class="title h1 text-center">Habitaciones:</div>
 
     <!-- Card de Habitaciones -->
-    <div class="card">
+    <div class="card"  *ngFor="let habitacion of habitacionesModelGet">
       <div class="row ">
         <div class="col-md-7 px-3">
           <div class="card-block px-6">
-            <h4 class="card-title">Habitación Individual C-19 </h4>
+            <h4 class="card-title">Habitacion {{habitacion.tipo}}</h4>
             <p class="card-text">
-              Costo por noche: Q1000.00
+              Costo por noche: Q{{habitacion.precio}}
             </p>
           </div>
         </div>
@@ -97,21 +97,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #addHotelForm="ngForm">
           <div class="mb-3">
             <label for="inputNombre" class="form-label">Nombre Habitación</label>
-            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre=""  autocomplete="off">
+            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre=""  autocomplete="off" [(ngModel)]="habitacionesModelPost.tipo">
           </div>
           <div class="mb-3">
             <label for="inputCosto" class="form-label">Costo por Noche</label>
-            <input type="number" min="1" class="form-control" id="inputCosto" name="costo" #costo="" autocomplete="off">
+            <input type="number" min="1" class="form-control" id="inputCosto" name="costo" #costo="" autocomplete="off" [(ngModel)]="habitacionesModelPost.precio">
           </div>
           <br>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Agregar</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="agregar(addHotelForm)">Agregar</button>
       </div>
     </div>
   </div>
