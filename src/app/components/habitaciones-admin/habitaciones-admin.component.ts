@@ -73,7 +73,7 @@ export class HabitacionesAdminComponent implements OnInit {
 
   getHabitaciones(idHotel){
     console.log("id"+idHotel)
-    this._HotelesService.obtenerHabitaciones(idHotel,this._UsuariosService.obtenerToken()).subscribe(
+    this._HotelesService.obtenerHabitaciones(this._UsuariosService.obtenerToken(), idHotel).subscribe(
       (response) => {
         console.log(response.hotel)
           this.habitacionesModelGet = response.habitaciones

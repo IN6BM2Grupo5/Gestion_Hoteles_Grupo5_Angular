@@ -24,7 +24,7 @@
 <div class="container">
 
   <div class="input-group">
-    <input type="search" class="form-control rounded " placeholder="buscar" aria-label="buscar" aria-describedby="search-addon" />
+    <input type="search" class="form-control rounded " placeholder="buscar" aria-label="buscar" aria-describedby="search-addon" (input)="getHotelesNombre($event.target.value)"/>
   </div>
 
   <div class="row">

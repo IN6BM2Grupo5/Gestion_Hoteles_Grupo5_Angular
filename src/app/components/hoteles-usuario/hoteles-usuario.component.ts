@@ -44,4 +44,23 @@ export class HotelesUsuarioComponent implements OnInit {
       }
     )
   }
+
+  getHotelesNombre(nombre){
+    if(nombre){
+        this._HotelesService.obtenerHotelesNombre(nombre,  this._UsuariosService.obtenerToken()).subscribe(
+          (response)=>{
+            this.HotelesModelGet = response.hoteles;
+            console.log(this.HotelesModelGet);
+          },
+          (error)=>{
+            this.getHoteles();
+          }
+        )
+    }else{
+      this.getHoteles();
+    }
+
+  }
+
 }
+

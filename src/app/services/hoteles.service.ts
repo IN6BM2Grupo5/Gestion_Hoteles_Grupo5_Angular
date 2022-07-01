@@ -30,9 +30,18 @@ export class HotelesService {
     return this._http.get(this.url + '/hotelId/'+id, { headers: headersToken })
   }
 
-  obtenerHabitaciones(id: String, token): Observable<any>{
+  obtenerHotelIdAdmin(id: String, token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
 
+    return this._http.get(this.url + '/hotelesPorAdmin/'+id, { headers: headersToken })
+  }
+
+
+  obtenerHabitaciones(token, id?:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    if(id==undefined){
+      id = ""
+    }
     return this._http.get(this.url + '/habitaciones/'+id, { headers: headersToken })
   }
 
@@ -40,6 +49,12 @@ export class HotelesService {
     let headersToken = this.headersVariable.set('Authorization', token)
     let parametros = JSON.stringify(modeloHabitacion);
     return this._http.post(this.url + '/agregarHabitacion/'+ id, parametros, { headers: headersToken })
+  }
+
+  obtenerHotelesNombre(nombre, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/hotelesPorNombre/'+nombre, { headers: headersToken })
   }
 
 }

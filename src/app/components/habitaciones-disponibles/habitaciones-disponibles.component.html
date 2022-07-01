@@ -28,36 +28,21 @@
 
   <div class="row">
     <div class="col-12 col-md-12 py-3" >
-      <h2>Habitaciones Disponibles: 1</h2>
+      <h2>Habitaciones Disponibles: </h2>
       <br>
 
-      <div class="card mb-3">
+      <div class="card mb-3" *ngFor="let habitacion of habitacionesModelGet">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="../../../assets/img/habitacion1.jpg" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Habitación Individual C-19</h5>
-              <p class="card-text estado">DISPONIBLE</p>
+              <h5 class="card-title">Habitación {{habitacion.tipo}}</h5>
+              <p class="card-text estado">{{habitacion.estado}}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../../../assets/img/habitacion1.jpg" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Habitación Individual C-19</h5>
-              <p class="card-text estado-no">NO DISPONIBLE</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
   </div>
 </div>
