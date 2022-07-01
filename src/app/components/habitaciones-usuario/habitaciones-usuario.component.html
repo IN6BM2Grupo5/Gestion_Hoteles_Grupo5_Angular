@@ -102,16 +102,16 @@
     <div class="title h1 text-center">Servicios:</div>
 
     <!-- Card de Servicios -->
-    <div class="card mb-3">
+    <div class="card mb-3" *ngFor="let servicio of serviciosModelGet">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="../../../assets/img/servicios.jpg" class="img-habitacion" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Limpieza</h5>
+            <h5 class="card-title">{{servicio.servicio}}</h5>
             <p class="card-text">
-              Costo por servicio: Q500.00
+              Costo por servicio: Q{{servicio.precio}}
             </p>
             <a class="mt-auto btn btn-success">Contratar</a>
           </div>

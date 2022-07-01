@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { habitaciones } from '../models/habitaciones.model';
 import { hoteles } from '../models/hoteles.model'
+import { servicios } from '../models/servicios.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,21 @@ export class HotelesService {
     let parametros = JSON.stringify(modeloHabitacion);
     return this._http.post(this.url + '/agregarHabitacion/'+ id, parametros, { headers: headersToken })
   }
+
+  obtenerServicios(token, id?:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    if(id==undefined){
+      id = ""
+    }
+    return this._http.get(this.url + '/servicios/'+id, { headers: headersToken })
+  }
+
+  agregarServicio(modeloServicio: servicios, id : String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    let parametros = JSON.stringify(modeloServicio);
+    return this._http.post(this.url + '/agregarServicio/'+ id, parametros, { headers: headersToken })
+  }
+
 
   obtenerHotelesNombre(nombre, token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
