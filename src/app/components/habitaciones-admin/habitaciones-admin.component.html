@@ -17,15 +17,71 @@
           </div>
       </div>
   </div>
-</div><br>
+</div>
+
+<div class="row justify-content-evenly team-boxed-1">
+
+  <div class="title h1 text-center"><br>Eventos del Hotel:</div>
+
+</div>
+
 
 <div class="row justify-content-around">
-  <button class="btn btn-dark mb-3 col-5" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarHabitacion"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+  <button class="btn btn-dark mb-3 col-4" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarEvento"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+    </svg> Agregar Evento
+  </button>
+</div>
+
+
+
+<!--Carrusel-->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active card-img-top">
+      <img src="../../../assets/img/evento-fogata.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fogata Nocturna</h5>
+        <p>Disfruta del tiempo con tus amigos y familia enfrente de una fogata idea para contar historias.</p>
+      </div>
+    </div>
+    <div class="carousel-item card-img-top">
+      <img src="../../../assets/img/evento-graduacion.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Eventos de Graduación</h5>
+        <p>Celebra el exito de completar un ciclo escolar en los mejores salones, ven a nuestro hotel.</p>
+      </div>
+    </div>
+    <div class="carousel-item card-img-top">
+      <img src="../../../assets/img/evento-fuegos.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fuegos Artificiales</h5>
+        <p>Ven a presenciar los fuegos artificales a media noche para finalizar la semana con la mejor actitud.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div><br><br><br>
+
+<div class="row justify-content-around">
+  <button class="btn btn-dark mb-3 col-5 boton" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarHabitacion"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
     </svg> Agregar Habitación
   </button>
 
-  <button class="btn btn-dark mb-3 col-5" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarServicio"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+  <button class="btn btn-dark mb-3 col-5 boton" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarServicio"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
     </svg> Agregar Servicio
   </button>
@@ -143,6 +199,39 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="agregarServicio(addServicioForm)">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal Agregar Evento-->
+<div class="modal fade" id="modalAgregarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addEventoForm="ngForm">
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre Evento</label>
+            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre=""  autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="inputTipo" class="form-label">Tipo de Evento</label>
+            <input type="text" class="form-control" id="inputTipo" name="tipo" #tipo=""  autocomplete="off">
+          </div>
+          <br>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Agregar</button>
       </div>
     </div>
   </div>

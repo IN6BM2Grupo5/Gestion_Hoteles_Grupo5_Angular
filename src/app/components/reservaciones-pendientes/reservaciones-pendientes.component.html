@@ -27,46 +27,35 @@
 
 <div class="container">
 
-  <div class="row">
-    <div class="col-12 col-md-6 py-3" >
-
-      <div class="card text-center" >
-        <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80);">
-        </div>
-        <div class="card-content">
-            <h2 class="card-title"></h2>
-            <p><b>Habitación:</b> Individual C-19</p>
-            <p><b>Fecha Inicio:</b> 12/2/2022</p>
-            <p><b>Fecha Final:</b> 24/2/2022</p>
-            <button type="button" class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/confirmar-reservacion" routerLinkActive="active"
-            aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
-              <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-            </svg>
-            Terminar Reservación
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-6 py-3" >
-
-      <div class="card text-center" >
-        <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80);">
-        </div>
-        <div class="card-content">
-            <h2 class="card-title"></h2>
-            <p><b>Habitación:</b> Individual C-19</p>
-            <p><b>Fecha Inicio:</b> 12/2/2022</p>
-            <p><b>Fecha Final:</b> 24/2/2022</p>
-            <button type="button" class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/confirmar-reservacion" routerLinkActive="active"
-            aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
-              <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-            </svg>
-            Terminar Reservación
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Habitación / Servicio</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Confirmación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Habitación Individual C-49</td>
+        <td>Q5500.00
+        </td>
+        <td><a class="mt-auto btn btn-warning boton">Confirmar</a></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Servicio de Limpieza</td>
+        <td>Q750.00</td>
+        <td><a class="mt-auto btn btn-warning boton">Confirmar</a></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Servicio de Comida</td>
+        <td>Q1200.00</td>
+        <td><a class="mt-auto btn btn-warning boton">Confirmar</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
