@@ -5,6 +5,7 @@ import { habitaciones } from 'src/app/models/habitaciones.model';
 import Swal from 'sweetalert2'
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { servicios } from 'src/app/models/servicios.model';
+import { eventos } from 'src/app/models/eventos.model';
 
 @Component({
   selector: 'app-habitaciones-admin',
@@ -17,6 +18,8 @@ export class HabitacionesAdminComponent implements OnInit {
   public habitacionesModelPost: habitaciones;
   public serviciosModelGet: servicios;
   public serviciosModelPost: servicios;
+  public eventosModelPost: eventos;
+  public eventosModelGet: eventos;
   public token;
   public nombreHotel: string;
   constructor(
@@ -25,6 +28,7 @@ export class HabitacionesAdminComponent implements OnInit {
     public _UsuariosService : UsuariosService) {
       this.habitacionesModelPost = new habitaciones("", "", "", 0, 0, "" )
       this.serviciosModelPost = new servicios("", "", 0, "")
+      this.eventosModelPost = new eventos("", "", "", "", "")
     }
 
   ngOnInit(): void {
@@ -32,6 +36,7 @@ export class HabitacionesAdminComponent implements OnInit {
       this.getHotelNombre(dataRuta.get('idHotel'))
       this.getHabitaciones(dataRuta.get('idHotel'))
       this.getServicios(dataRuta.get('idHotel'))
+      this.getEventos(dataRuta.get('idHotel'))
     })
   }
 
@@ -82,6 +87,54 @@ export class HabitacionesAdminComponent implements OnInit {
         }
       )
     })
+  }
+
+  obtenerImagen(){
+    const arr = ["evento-fogata.jpg","evento-graduacion.jpg","evento-fuegos.jpg"];
+    let num = Math.floor(Math.random() * arr.length);
+    this.eventosModelPost.imagen = "../../../assets/img/"+arr[num]
+    console.log(this.eventosModelPost.imagen)
+  }
+
+  agregarEvento(addEventoForm){
+    this.obtenerImagen()
+    this._activatedRoute.paramMap.subscribe((dataRuta) => {
+      this._HotelesService.agregarEvento(this.eventosModelPost, dataRuta.get('idHotel'), this._UsuariosService.obtenerToken()).subscribe(
+        (response)=>{
+          console.log(response);
+          this.getEventos(dataRuta.get('idHotel'))
+          Swal.fire({
+            icon: 'success',
+            title: 'Operación exitosa',
+            text: "servicio creado exitosamente"
+          })
+          addEventoForm.reset()
+        },
+        (error)=>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.mensaje
+          })
+        }
+      )
+    })
+  }
+
+  getEventos(idHotel){
+    this._HotelesService.obtenerEventos(this._UsuariosService.obtenerToken(), idHotel).subscribe(
+      (response) => {
+        console.log("eventos"+response.eventos)
+          this.eventosModelGet = response.eventos
+      },
+      (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
   }
 
 

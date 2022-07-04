@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { eventos } from '../models/eventos.model';
 import { habitaciones } from '../models/habitaciones.model';
 import { hoteles } from '../models/hoteles.model'
 import { servicios } from '../models/servicios.model';
@@ -46,6 +47,15 @@ export class HotelesService {
     return this._http.get(this.url + '/habitaciones/'+id, { headers: headersToken })
   }
 
+
+  obtenerEventos(token, id?:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    if(id==undefined){
+      id = ""
+    }
+    return this._http.get(this.url + '/eventos/'+id, { headers: headersToken })
+  }
+
   agregarHabitacion(modeloHabitacion: habitaciones, id : String, token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
     let parametros = JSON.stringify(modeloHabitacion);
@@ -72,5 +82,12 @@ export class HotelesService {
 
     return this._http.get(this.url + '/hotelesPorNombre/'+nombre, { headers: headersToken })
   }
+
+  agregarEvento(modeloEvento: eventos, id : String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    let parametros = JSON.stringify(modeloEvento);
+    return this._http.post(this.url + '/agregarEvento/'+ id, parametros, { headers: headersToken })
+  }
+
 
 }
