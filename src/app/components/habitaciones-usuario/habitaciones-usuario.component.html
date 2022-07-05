@@ -35,7 +35,6 @@
         <div class="carousel-caption d-none d-md-block">
           <h5>{{evento.evento}}</h5>
           <p>{{evento.tipo}}</p>
-          <a class="mt-auto btn btn-warning">Asistir</a>
         </div>
       </div>
   </ul>
@@ -66,7 +65,10 @@
             <p class="card-text">
               Costo por noche: {{habitacion.precio}}
             </p>
-            <a class="mt-auto btn btn-success">Reservar</a>
+            <button type="button" class="btn btn-success margin-left boton"  type="button" data-bs-toggle="modal" data-bs-target="#modalReservar"
+            aria-controls="offcanvasExample">
+            Reservar
+          </button>
           </div>
         </div>
         <div class="col-md-5">
@@ -96,9 +98,71 @@
             <p class="card-text">
               Costo por servicio: Q{{servicio.precio}}
             </p>
-            <a class="mt-auto btn btn-success">Contratar</a>
+            <button type="button" class="btn btn-success margin-left boton"  type="button" data-bs-toggle="modal" data-bs-target="#modalServicio"
+            aria-controls="offcanvasExample">
+            Contratar
+          </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Hacer Reservacion -->
+<div class="modal fade" id="modalReservar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title letras" id="exampleModalLabel">Reservación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputFechaInicio" class="form-label letras">Fecha Inicial</label>
+            <input type="date" class="form-control" id="inputFechaInicio" name="fechaInicio" #fechaInicio=""  autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="inputFechaFinal" class="form-label letras">Fecha Final</label>
+            <input type="date" min="1" class="form-control" id="inputFechaInicial" name="fechaFin" #fechaFin=""  autocomplete="off">
+          </div>
+          <br>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Contrar Servicio -->
+<div class="modal fade" id="modalServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title letras" id="exampleModalLabel">Contratar Servicio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputFechaInicio" class="form-label letras">Fecha Inicial</label>
+            <input type="date" class="form-control" id="inputFechaInicio" name="fechaInicio" #fechaInicio=""  autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="inputFechaFinal" class="form-label letras">Fecha Final</label>
+            <input type="date" min="1" class="form-control" id="inputFechaInicial" name="fechaFin" #fechaFin=""  autocomplete="off">
+          </div>
+          <br>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
       </div>
     </div>
   </div>
