@@ -27,6 +27,7 @@ import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.com
 import { AdminGuard } from './services/admin.guard';
 import { HotelGuard } from './services/hotel.guard';
 import { InicioHotelComponent } from './components/inicio-hotel/inicio-hotel.component';
+import { HotelesGeneralesComponent } from './components/hoteles-generales/hoteles-generales.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio',  pathMatch: 'full'},
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
+  { path: 'hoteles', component: HotelesGeneralesComponent},
 
   // Usuario
   { path: 'usuario',  component: InicioUsuarioComponent, canActivate: [UsuarioGuard]  ,children: [

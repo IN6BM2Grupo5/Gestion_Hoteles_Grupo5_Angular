@@ -29,6 +29,7 @@ import { ReservacionesPendientesComponent } from './components/reservaciones-pen
 import { InicioUsuarioComponent } from './components/inicio-usuario/inicio-usuario.component';
 import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
 import { InicioHotelComponent } from './components/inicio-hotel/inicio-hotel.component';
+import { HotelesGeneralesComponent } from './components/hoteles-generales/hoteles-generales.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { InicioHotelComponent } from './components/inicio-hotel/inicio-hotel.com
     ReservacionesPendientesComponent,
     InicioUsuarioComponent,
     InicioAdminComponent,
-    InicioHotelComponent
+    InicioHotelComponent,
+    HotelesGeneralesComponent
   ],
   imports: [
     BrowserModule,
