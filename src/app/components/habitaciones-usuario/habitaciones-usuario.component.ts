@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { servicios } from 'src/app/models/servicios.model';
 import { eventos } from 'src/app/models/eventos.model';
+import { reservas } from 'src/app/models/reservas.model';
 @Component({
   selector: 'app-habitaciones-usuario',
   templateUrl: './habitaciones-usuario.component.html',
@@ -14,13 +15,16 @@ import { eventos } from 'src/app/models/eventos.model';
 })
 export class HabitacionesUsuarioComponent implements OnInit {
   public habitacionesModelGet: habitaciones;
+  public reservar: reservas;
   public serviciosModelGet: servicios;
   public token;
   public eventosModelGet: eventos;
   public nombreHotel: string;
   constructor( public _activatedRoute : ActivatedRoute,
     public _HotelesService : HotelesService,
-    public _UsuariosService : UsuariosService) { }
+    public _UsuariosService : UsuariosService) {
+      this.reservar = new reservas("", "", "", "", 0, "", "")
+     }
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((dataRuta) => {

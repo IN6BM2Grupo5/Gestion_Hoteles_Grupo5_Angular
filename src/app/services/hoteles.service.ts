@@ -5,6 +5,7 @@ import { eventos } from '../models/eventos.model';
 import { habitaciones } from '../models/habitaciones.model';
 import { hoteles } from '../models/hoteles.model'
 import { servicios } from '../models/servicios.model';
+import { reservas } from '../models/reservas.model'
 
 @Injectable({
   providedIn: 'root'
@@ -89,5 +90,10 @@ export class HotelesService {
     return this._http.post(this.url + '/agregarEvento/'+ id, parametros, { headers: headersToken })
   }
 
+  ReservarHabitacion(modeloReserva: reservas, id : String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    let parametros = JSON.stringify(modeloReserva);
+    return this._http.post(this.url + '/reservar/'+ id, parametros, { headers: headersToken })
+  }
 
 }
