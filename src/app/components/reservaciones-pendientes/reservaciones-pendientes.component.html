@@ -39,26 +39,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let cuenta of UsuariosModelGet">
         <th scope="row">1</th>
-        <td>Habitación Individual C-49</td>
-        <td>Q5500.00</td>
-        <td>07/03/2022</td>
-        <td>07/03/2022</td>
-        <td><a class="mt-auto btn btn-warning boton">Confirmar</a></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Servicio de Limpieza</td>
-        <td>Q750.00</td>
-        <td>07/03/2022</td>
-        <td>07/03/2022</td>
-        <td><a class="mt-auto btn btn-warning boton">Confirmar</a></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Servicio de Comida</td>
-        <td>Q1200.00</td>
+        <td>{{cuenta.descripcion}}</td>
+        <td>Q{{cuenta.precio}}</td>
         <td>07/03/2022</td>
         <td>07/03/2022</td>
         <td><a class="mt-auto btn btn-warning boton">Confirmar</a></td>

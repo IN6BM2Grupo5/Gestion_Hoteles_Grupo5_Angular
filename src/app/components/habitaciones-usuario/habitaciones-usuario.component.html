@@ -66,7 +66,7 @@
               Costo por noche: {{habitacion.precio}}
             </p>
             <button type="button" class="btn btn-success margin-left boton"  type="button" data-bs-toggle="modal" data-bs-target="#modalReservar"
-            aria-controls="offcanvasExample">
+            aria-controls="offcanvasExample" (click)="this.idHabitacion = habitacion._id">
             Reservar
           </button>
           </div>
@@ -118,21 +118,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #ReservaForm="ngForm">
           <div class="mb-3">
             <label for="inputFechaInicio" class="form-label letras">Fecha Inicial</label>
-            <input type="date" class="form-control" id="inputFechaInicio" name="fechaInicio" #fechaInicio=""  autocomplete="off">
+            <input type="date" class="form-control" id="inputFechaInicio" name="fechaInicio" #fechaInicio=""  autocomplete="off" [(ngModel)]="reservar.fechaInicio">
           </div>
           <div class="mb-3">
             <label for="inputFechaFinal" class="form-label letras">Fecha Final</label>
-            <input type="date" min="1" class="form-control" id="inputFechaInicial" name="fechaFin" #fechaFin=""  autocomplete="off">
+            <input type="date" min="1" class="form-control" id="inputFechaInicial" name="fechaFin" #fechaFin=""  autocomplete="off" [(ngModel)]="reservar.fechaFin">
           </div>
           <br>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal" (click)="Reservar(ReservaForm)">Confirmar</button>
       </div>
     </div>
   </div>

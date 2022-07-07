@@ -20,6 +20,7 @@ export class HabitacionesUsuarioComponent implements OnInit {
   public token;
   public eventosModelGet: eventos;
   public nombreHotel: string;
+  public idHabitacion: String;
   constructor( public _activatedRoute : ActivatedRoute,
     public _HotelesService : HotelesService,
     public _UsuariosService : UsuariosService) {
@@ -50,6 +51,29 @@ export class HabitacionesUsuarioComponent implements OnInit {
       }
     )
   }
+
+  Reservar(ReservaForm){
+      this._HotelesService.ReservarHabitacion(this.reservar, this.idHabitacion, this._UsuariosService.obtenerToken()).subscribe(
+        (response)=>{
+          console.log(response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Reserva exitosa',
+            text: "habitación reservada exitosamente"
+          })
+          ReservaForm.reset()
+          this.idHabitacion = ""
+        },
+        (error)=>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.mensaje
+          })
+        }
+      )
+  }
+
 
   getHabitaciones(idHotel){
     console.log("id"+idHotel)
