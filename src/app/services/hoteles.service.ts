@@ -22,9 +22,7 @@ export class HotelesService {
   }
 
   obtenerHoteles(token): Observable<any>{
-    let headersToken = this.headersVariable.set('Authorization', token)
-
-    return this._http.get(this.url + '/hoteles', { headers: headersToken })
+    return this._http.get(this.url + '/hoteles', { headers: this.headersVariable })
   }
 
   obtenerHotelId(id: String, token): Observable<any>{
@@ -84,10 +82,16 @@ export class HotelesService {
 
 
   obtenerHotelesNombre(nombre, token): Observable<any>{
-    let headersToken = this.headersVariable.set('Authorization', token)
 
-    return this._http.get(this.url + '/hotelesPorNombre/'+nombre, { headers: headersToken })
+    return this._http.get(this.url + '/hotelesPorNombre/'+nombre, { headers: this.headersVariable })
   }
+
+  obtenerHotelesDireccion(direccion, token): Observable<any>{
+
+
+    return this._http.get(this.url + '/hotelesPorDireccion/'+direccion, { headers: this.headersVariable })
+  }
+
 
   agregarEvento(modeloEvento: eventos, id : String, token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)

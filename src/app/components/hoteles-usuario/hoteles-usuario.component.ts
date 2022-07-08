@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   providers: [UsuariosService, HotelesService]
 })
 export class HotelesUsuarioComponent implements OnInit {
+
   public HotelesModelGet: hoteles;
   constructor(  private _UsuariosService: UsuariosService,
     private _HotelesService: HotelesService) { }

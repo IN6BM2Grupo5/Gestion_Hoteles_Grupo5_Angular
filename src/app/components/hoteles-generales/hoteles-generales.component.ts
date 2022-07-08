@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from 'src/app/services/usuarios.service';
 import { hoteles } from 'src/app//models/hoteles.model'
 import { HotelesService } from 'src/app/services/hoteles.service'
 import Swal from 'sweetalert2';
@@ -10,8 +9,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./hoteles-generales.component.scss']
 })
 export class HotelesGeneralesComponent implements OnInit {
+  tipo;
+  entrada = '';
+  mensaje = ''
+  tipos = [
+    {nombre: 'Nombre'},
+    {nombre: 'Dirección'},
+  ]
   public HotelesModelGet: hoteles;
-  constructor(  private _UsuariosService: UsuariosService,
+  constructor(
     private _HotelesService: HotelesService) { }
 
   ngOnInit(): void {
@@ -19,20 +25,21 @@ export class HotelesGeneralesComponent implements OnInit {
   }
 
 
+  getBusqueda(busqueda){
+    console.log(this.tipo)
+    if(this.tipo!=undefined){
+      if(this.tipo == "Nombre"){
+        this.getHotelesNombre(busqueda)
+      }else if(this.tipo == "Dirección"){
+        this.getHotelesDireccion(busqueda)
+      }
+    }
+  }
+
   getHoteles(){
     this._HotelesService.obtenerHoteles("").subscribe(
       (response) => {
           this.HotelesModelGet = response.hoteles;
-          for(let i = 0; i < response.hoteles.length; i++) {
-            this._UsuariosService.obtenerUsuariosId(this.HotelesModelGet[i].idUsuario, this._UsuariosService.obtenerToken()).subscribe(
-              (responseUsuario) => {
-                this.HotelesModelGet[i].usuario = responseUsuario.usuario.usuario;
-                console.log(this.HotelesModelGet[i])
-              }
-            )
-
-          }
-
       },
       (error) => {
         Swal.fire({
@@ -47,6 +54,23 @@ export class HotelesGeneralesComponent implements OnInit {
   getHotelesNombre(nombre){
     if(nombre){
         this._HotelesService.obtenerHotelesNombre(nombre,  "").subscribe(
+          (response)=>{
+            this.HotelesModelGet = response.hoteles;
+            console.log(this.HotelesModelGet);
+          },
+          (error)=>{
+            this.getHoteles();
+          }
+        )
+    }else{
+      this.getHoteles();
+    }
+
+  }
+
+  getHotelesDireccion(direccion){
+    if(direccion){
+        this._HotelesService.obtenerHotelesDireccion(direccion,  "").subscribe(
           (response)=>{
             this.HotelesModelGet = response.hoteles;
             console.log(this.HotelesModelGet);

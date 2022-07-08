@@ -27,14 +27,15 @@
   </svg> Regresar</button>
 
   <div class="input-group">
-    <input type="search" class="form-control rounded" placeholder="buscar" aria-label="buscar" aria-describedby="search-addon"/>
-    <select class="select" name="tipo" >
-      <option></option>
+    <input type="search" class="form-control rounded" ng-disabled="true" placeholder="buscar" aria-label="buscar" aria-describedby="search-addon" [(ngModel)]="entrada" (input)="getBusqueda($event.target.value);"/>
+    <select class="select" name="tipo"  (change)="entrada = ''; this.getHoteles();" [(ngModel)]="tipo" >
+      <option disabled hidden value="undefined">Introduce el tipo de busqueda</option>
+      <option *ngFor="let tipo of tipos" value="{{ tipo.nombre }}">{{ tipo.nombre }}</option>
     </select>
   </div>
 
   <div class="row">
-    <div class="col-12 col-md-6 py-3">
+    <div class="col-12 col-md-6 py-3" *ngFor="let hotel of HotelesModelGet">
 
       <div class="card text-center" >
         <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80);">
@@ -43,10 +44,10 @@
           </div>
         </div>
         <div class="card-content">
-            <h2 class="card-title"></h2>
-            <p>ID: </p>
-            <p>Municipio: </p>
-            <p>Dirección: </p>
+          <h2 class="card-title">{{hotel.nombreHotel}}</h2>
+          <p>ID: {{hotel._id}}</p>
+          <p>Municipio: {{hotel.municipio}}</p>
+          <p>Dirección: {{hotel.direccion}}</p>
         </div>
       </div>
     </div>
