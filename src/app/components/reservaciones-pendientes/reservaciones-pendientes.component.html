@@ -52,9 +52,9 @@
         <th scope="row">1</th>
         <td>{{cuenta.descripcion}}</td>
         <td>Q{{cuenta.precio}}</td>
-        <td>07/03/2022</td>
-        <td>07/03/2022</td>
-        <td><a class="mt-auto btn btn-danger boton">Cancelar</a></td>
+        <td>{{cuenta.fechaInicio}}</td>
+        <td>{{cuenta.fechaFin}}</td>
+        <td><button type="button" class="mt-auto btn btn-danger boton" (click)="cancelarReserva(cuenta._id)">Cancelar</button></td>
       </tr>
     </tbody>
   </table>

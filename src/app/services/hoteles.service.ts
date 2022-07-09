@@ -38,6 +38,12 @@ export class HotelesService {
   }
 
 
+  cancelar(id: String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    console.log(headersToken)
+    return this._http.put(this.url + '/cancelarReserva/'+id, { headers: headersToken })
+  }
+
   obtenerHabitaciones(token, id?:String): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
     if(id==undefined){
@@ -104,5 +110,4 @@ export class HotelesService {
     let parametros = JSON.stringify(modeloReserva);
     return this._http.put(this.url + '/reservar/'+ id, parametros, { headers: headersToken })
   }
-
 }

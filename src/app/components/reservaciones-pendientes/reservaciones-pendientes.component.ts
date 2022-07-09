@@ -34,6 +34,29 @@ export class ReservacionesPendientesComponent implements OnInit {
     )
   }
 
+
+  cancelarReserva(idReserva){
+    this._HotelesService.cancelar(idReserva, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getCuenta()
+        Swal.fire({
+          icon: 'success',
+          title: 'Reserva cancelada',
+          text: "Reserva cancelada exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+}
+
+
   ngOnInit(): void {
     this.getCuenta()
   }

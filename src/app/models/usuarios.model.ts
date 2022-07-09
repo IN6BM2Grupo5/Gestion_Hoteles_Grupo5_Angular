@@ -7,7 +7,7 @@ export class usuarios{
     public rol: String,
     public cuenta: [{
         descripcion: String,
-        precio:Number
+        precio:Number,
     }]
   ){}
 }
