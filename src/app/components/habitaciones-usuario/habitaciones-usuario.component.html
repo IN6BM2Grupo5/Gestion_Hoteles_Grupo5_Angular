@@ -99,7 +99,7 @@
               Costo por servicio: Q{{servicio.precio}}
             </p>
             <button type="button" class="btn btn-success margin-left boton"  type="button" data-bs-toggle="modal" data-bs-target="#modalServicio"
-            aria-controls="offcanvasExample">
+            aria-controls="offcanvasExample" (click)="this.idServicio = servicio._id">
             Contratar
           </button>
           </div>
@@ -148,15 +148,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #PedirForm="ngForm">
           <div class="mb-3">
             <label for="inputFechaInicio" class="form-label letras">Fecha Inicial</label>
-            <input type="date" class="form-control" id="inputFechaInicio" name="fechaInicio" #fechaInicio=""  autocomplete="off">
+            <input type="date" class="form-control" id="inputFechaInicio" name="fechaInicio" #fechaInicio=""  autocomplete="off" [(ngModel)]="pedir.fechaInicio">
           </div>
           <div class="mb-3">
             <label for="inputFechaFinal" class="form-label letras">Para la habitación:</label>
-            <select class="form-select" id="inputHabitacion" name="habitacion" >
-              <option></option>
+            <select class="form-select" id="inputHabitacion" name="habitacion" [(ngModel)]="pedir.idHabitacion">
+              <option *ngFor="let habitacion of habitacionesModelGet" value="{{ habitacion._id }}">{{ habitacion.tipo }}</option>
             </select>
           </div>
           <br>
@@ -164,7 +164,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal" (click)="Pedir(PedirForm)">Confirmar</button>
       </div>
     </div>
   </div>

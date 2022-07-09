@@ -6,6 +6,7 @@ export class reservas{
     public fechaFin:String,
     public dias: Number,
     public idUsuario: String,
-    public idHotel: String
+    public idHotel: String,
+    public idHabitacion: String,
   ){}
 }

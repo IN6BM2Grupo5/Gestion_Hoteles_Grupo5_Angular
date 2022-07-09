@@ -16,15 +16,18 @@ import { reservas } from 'src/app/models/reservas.model';
 export class HabitacionesUsuarioComponent implements OnInit {
   public habitacionesModelGet: habitaciones;
   public reservar: reservas;
+  public pedir: reservas;
   public serviciosModelGet: servicios;
   public token;
   public eventosModelGet: eventos;
   public nombreHotel: string;
   public idHabitacion: String;
+  public idServicio: String;
   constructor( public _activatedRoute : ActivatedRoute,
     public _HotelesService : HotelesService,
     public _UsuariosService : UsuariosService) {
-      this.reservar = new reservas("", "", "", "", 0, "", "")
+      this.reservar = new reservas("", "", "", "", 0, "", "", "")
+      this.pedir = new reservas("", "", "", "", 0, "", "", "")
      }
 
   ngOnInit(): void {
@@ -73,6 +76,29 @@ export class HabitacionesUsuarioComponent implements OnInit {
         }
       )
   }
+
+  Pedir(PedirForm){
+    this._HotelesService.pedirServicio(this.pedir, this.idServicio, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        Swal.fire({
+          icon: 'success',
+          title: 'petición exitosa',
+          text: "servicio pedido exitosamente"
+        })
+        PedirForm.reset()
+        this.idServicio = ""
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+}
+
 
 
   getHabitaciones(idHotel){
