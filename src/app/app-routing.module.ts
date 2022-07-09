@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'habitaciones-admin/:idHotel', component: HabitacionesAdminComponent},
   { path: 'administradores', component: AdministradoresComponent},
   { path: 'estadistica-general', component: EstadisticaGeneralComponent},
-  { path: 'estadistica-reporte', component: EstadisticaReporteHotelComponent},
+  { path: 'estadistica-reporte/:idHotel', component: EstadisticaReporteHotelComponent},
   ]},
 
   // Administrador Hotel

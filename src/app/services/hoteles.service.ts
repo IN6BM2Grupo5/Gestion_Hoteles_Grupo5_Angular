@@ -15,6 +15,12 @@ export class HotelesService {
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(public _http: HttpClient) { }
 
+  obtenerUsuariosHospedados(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/usuariosHotel', {  headers: headersToken })
+  }
+
   agregarHotel(modeloHotel: hoteles, token): Observable<any>{
     let parametros = JSON.stringify(modeloHotel);
     let headersToken = this.headersVariable.set('Authorization', token)

@@ -27,22 +27,10 @@
       <div class="input-group">
         <input type="search" class="form-control rounded " placeholder="buscar" aria-label="buscar" aria-describedby="search-addon" />
       </div>
-      <div class="row people">
+      <div class="row people" *ngFor="let usuario of UsuariosModelGet">
         <div class="col-md-6 col-lg-4 item">
           <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">Juan Solís</h3>
-            <p class="title">Usuario</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-          <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">Brandon Palma</h3>
-            <p class="title">Usuario</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-          <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">Enrique Hurtarte</h3>
+            <h3 class="name">{{usuario.usuario}}</h3>
             <p class="title">Usuario</p>
           </div>
         </div>
