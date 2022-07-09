@@ -22,7 +22,6 @@ export class ReservacionesPendientesComponent implements OnInit {
     this._HotelesService.obtenerCuenta(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
           this.UsuariosModelGet = response.cuenta;
-          console.log(response.cuenta);
       },
       (error) => {
         Swal.fire({
@@ -34,6 +33,9 @@ export class ReservacionesPendientesComponent implements OnInit {
     )
   }
 
+  stringAsDate(dateStr: string) {
+      return new Date(dateStr);
+  }
 
   cancelarReserva(idReserva){
     this._HotelesService.cancelar(idReserva, this._UsuariosService.obtenerToken()).subscribe(

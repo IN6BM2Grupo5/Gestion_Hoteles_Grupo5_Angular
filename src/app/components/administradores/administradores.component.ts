@@ -24,7 +24,9 @@ export class AdministradoresComponent implements OnInit {
     "",
     [{
       descripcion: "",
-      precio: 0
+      precio: 0,
+      fechaInicio: "",
+      fechaFin: ""
     }]
   )}
 

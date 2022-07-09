@@ -8,6 +8,8 @@ export class usuarios{
     public cuenta: [{
         descripcion: String,
         precio:Number,
+        fechaInicio: String,
+        fechaFin: String
     }]
   ){}
 }

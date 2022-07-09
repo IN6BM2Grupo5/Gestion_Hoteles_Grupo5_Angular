@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
       "",
       [{
         descripcion: "",
-        precio: 0
+        precio: 0,
+        fechaInicio: "",
+        fechaFin: ""
       }]
     )
   }
