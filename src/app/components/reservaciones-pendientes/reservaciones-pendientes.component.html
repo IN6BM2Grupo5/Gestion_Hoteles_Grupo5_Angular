@@ -36,7 +36,7 @@
       </button>
     </div>
     <div class="col-12 col-md-4 py-3">
-      <p class="total">Total del Carrito: Q</p>
+      <p class="total">Total del Carrito: Q{{total | number: '1.2-2'}}</p>
     </div>
   </div>
 
@@ -57,8 +57,8 @@
       <tr *ngFor="let cuenta of UsuariosModelGet">
         <th scope="row">1</th>
         <td>{{cuenta.descripcion}}</td>
-        <td>Q{{cuenta.precio}}</td>
-        <!-- Traer la habitacion para el servicio -->
+        <td>Q{{cuenta.precio | number: '1.2-2'}}</td>
+        <td>{{cuenta.idHabitacion}}</td>
         <td>{{ stringAsDate(cuenta.fechaInicio) | date:'dd-MM-yy' }}</td>
         <td *ngIf="cuenta.fechaFin != null">{{ stringAsDate(cuenta.fechaFin) | date:'dd-MM-yy' }}</td>
         <td *ngIf="cuenta.fechaFin == null"></td>

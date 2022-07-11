@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ReservacionesPendientesComponent implements OnInit {
   public UsuariosModelGet: usuarios;
+  public total=0;
 
   constructor(
     private _HotelesService: HotelesService,
@@ -21,7 +22,12 @@ export class ReservacionesPendientesComponent implements OnInit {
   getCuenta(){
     this._HotelesService.obtenerCuenta(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
+        console.log(response);
           this.UsuariosModelGet = response.cuenta;
+          for (let i = 0; i < response.cuenta.length; i++) {
+            console.log(response.cuenta[i].precio)
+            this.total = this.total + response.cuenta[i].precio
+          }
       },
       (error) => {
         Swal.fire({

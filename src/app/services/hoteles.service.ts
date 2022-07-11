@@ -57,7 +57,6 @@ export class HotelesService {
     return this._http.get(this.url + '/habitaciones/'+id, { headers: headersToken })
   }
 
-
   obtenerEventos(token, id?:String): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
     if(id==undefined){
@@ -108,6 +107,11 @@ export class HotelesService {
     let headersToken = this.headersVariable.set('Authorization', token)
     let parametros = JSON.stringify(modeloEvento);
     return this._http.post(this.url + '/agregarEvento/'+ id, parametros, { headers: headersToken })
+  }
+
+  confirmarCuenta(token, id? : String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    return this._http.post(this.url + '/confirmarCuenta/'+ id, { headers: headersToken })
   }
 
   ReservarHabitacion(modeloReserva: reservas, id : String, token): Observable<any>{
