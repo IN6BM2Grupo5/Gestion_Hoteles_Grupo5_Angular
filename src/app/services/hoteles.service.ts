@@ -110,8 +110,11 @@ export class HotelesService {
   }
 
   confirmarCuenta(token, id? : String): Observable<any>{
+    if(id==undefined){
+      id = ""
+    }
     let headersToken = this.headersVariable.set('Authorization', token)
-    return this._http.post(this.url + '/confirmarCuenta/'+ id, { headers: headersToken })
+    return this._http.post(this.url + '/confirmarCuenta/'+ id,"", { headers: headersToken })
   }
 
   ReservarHabitacion(modeloReserva: reservas, id : String, token): Observable<any>{

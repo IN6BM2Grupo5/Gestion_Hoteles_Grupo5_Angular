@@ -64,6 +64,28 @@ export class ReservacionesPendientesComponent implements OnInit {
     )
 }
 
+confirmarReserva(){
+  this._HotelesService.confirmarCuenta(this._UsuariosService.obtenerToken()).subscribe(
+    (response)=>{
+      console.log(response);
+      this.getCuenta()
+      Swal.fire({
+        icon: 'success',
+        title: 'Reserva confirmada',
+        text: "Reserva confirmada exitosamente"
+      })
+    },
+    (error)=>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.error.mensaje
+      })
+    }
+  )
+}
+
+
 
   ngOnInit(): void {
     this.getCuenta()
