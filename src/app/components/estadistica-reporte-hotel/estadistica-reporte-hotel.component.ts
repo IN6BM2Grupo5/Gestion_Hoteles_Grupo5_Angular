@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HotelesService } from 'src/app/services/hoteles.service';
 import Swal from 'sweetalert2'
 import { ActivatedRoute, Router } from '@angular/router';
-import { habitaciones } from 'src/app/models/habitaciones.model';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 @Component({
   selector: 'app-estadistica-reporte-hotel',
@@ -11,7 +10,19 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   providers: [HotelesService, UsuariosService]
 })
 export class EstadisticaReporteHotelComponent implements OnInit {
-  public habitacionesModelGet: habitaciones;
+  public habitacionesModelGet:any = [];
+  chartOptions = {
+    responsive: true,
+  };
+  chartLabels:any = [];
+  chartData:any = [];
+  chartColors:any = [
+    {
+      backgroundColor: []
+    }
+  ];
+  chartLegend = true;
+  chartPlugins = [];;
 
   constructor( public _activatedRoute : ActivatedRoute,
     public _HotelesService : HotelesService,
@@ -28,8 +39,13 @@ export class EstadisticaReporteHotelComponent implements OnInit {
     console.log("id"+idHotel)
     this._HotelesService.obtenerHabitaciones(this._UsuariosService.obtenerToken(),idHotel).subscribe(
       (response) => {
-        console.log(response.hotel)
-          this.habitacionesModelGet = response.habitaciones
+        console.log(response)
+          this.habitacionesModelGet = response.habitaciones;
+          this.habitacionesModelGet.forEach(dato => {
+            this.chartLabels.push(dato.tipo);
+            this.chartData.push(dato.registros);
+            this.chartColors[0].backgroundColor.push(`#${ Math.floor(Math.random()*16777215).toString(16)}`)
+          });
       },
       (error) => {
         Swal.fire({

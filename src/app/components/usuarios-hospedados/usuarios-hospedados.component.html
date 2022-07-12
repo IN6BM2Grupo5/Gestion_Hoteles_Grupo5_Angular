@@ -25,14 +25,14 @@
   <div class="container">
       <br>
       <div class="input-group">
-        <input type="search" class="form-control rounded " placeholder="buscar" aria-label="buscar" aria-describedby="search-addon" />
+        <input type="search" class="form-control rounded " placeholder="buscar" aria-label="buscar" aria-describedby="search-addon" (input)="getUsuariosNombre($event.target.value)"/>
       </div>
       <div class="row people" *ngFor="let usuario of UsuariosModelGet">
         <div class="col-md-6 col-lg-4 item">
           <div class="box"><img class="rounded-circle" src="../../../assets/img/usuario.jpg">
-            <h3 class="name">{{usuario.usuario}}</h3>
+            <h3 class="name">{{usuario.nombre}}</h3>
             <p class="title">Usuario</p>
-            <button type="button" class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/hotel/facturar" routerLinkActive="active"
+            <button type="button"  class="btn btn-success margin-left" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/hotel/facturar" routerLinkActive="active"
             aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-fill" viewBox="0 0 16 16">
               <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z"/>
             </svg>

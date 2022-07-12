@@ -19,6 +19,9 @@
   </div>
 </div> <br>
 
+
+
+
 <div class="container">
   <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/admin/hoteles-admin" routerLinkActive="active"
     aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
@@ -26,4 +29,17 @@
     </svg>
     Regresar
   </button>
+</div>
+
+<div style="display: grid;">
+  <canvas baseChart
+    chartType="doughnut"
+    height="70%"
+    [data]="chartData"
+    [colors]="chartColors"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [plugins]="chartPlugins"
+    [legend]="chartLegend">
+  </canvas>
 </div>

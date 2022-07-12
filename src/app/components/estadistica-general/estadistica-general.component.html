@@ -26,3 +26,16 @@
     Regresar
   </button>
 </div>
+
+<div style="display: grid;">
+  <canvas baseChart
+    chartType="pie"
+    height="70%"
+    [data]="chartData"
+    [colors]="chartColors"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [plugins]="chartPlugins"
+    [legend]="chartLegend">
+  </canvas>
+</div>

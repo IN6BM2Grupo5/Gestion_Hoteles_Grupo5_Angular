@@ -5,7 +5,9 @@ export class facturas{
     public total: Number,
     public cuenta: [{
         descripcion: String,
-        precio: Number
+        precio: Number,
+        fechaInicio: String,
+        fechaFin: String
     }]
   ){}
 }

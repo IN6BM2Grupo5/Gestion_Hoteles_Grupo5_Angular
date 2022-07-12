@@ -133,4 +133,17 @@ export class HotelesService {
     let parametros = JSON.stringify(modeloReserva);
     return this._http.put(this.url + '/pedirServicio/'+ id, parametros, { headers: headersToken })
   }
+
+  verReservas(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/verReservas/', { headers: headersToken })
+  }
+
+
+  verHistorial(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/verHistorial/', { headers: headersToken })
+  }
 }

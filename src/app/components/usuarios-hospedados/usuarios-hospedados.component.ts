@@ -31,6 +31,24 @@ export class UsuariosHospedadosComponent implements OnInit {
     )
   }
 
+  getUsuariosNombre(nombre){
+    if(nombre){
+      this._UsuariosService.obtenerUsuariosNombreHotel(nombre, this._UsuariosService.obtenerToken()).subscribe(
+        (response) => {
+            this.UsuariosModelGet = response.usuarios;
+
+            console.log(response.usuarios)
+        },
+        (error) => {
+          this.getUsuarios();
+        }
+      )
+    }else{
+      this.getUsuarios();
+    }
+
+  }
+
   ngOnInit(): void {
     this.getUsuarios()
   }

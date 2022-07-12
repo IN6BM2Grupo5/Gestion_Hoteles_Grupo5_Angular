@@ -80,6 +80,15 @@ export class UsuariosService {
     return this._http.get(this.url + '/usuarioId/' + id, { headers: headersToken  })
   }
 
+
+  obtenerUsuariosNombreHotel(nombre: String, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization',token)
+
+    return this._http.get(this.url + '/usuariosHotelPorNombre/' + nombre, { headers: headersToken  })
+  }
+
+
   editarUsuario(modeloUsuario: usuarios, token): Observable<any>{
     let parametros = JSON.stringify(modeloUsuario);
     let headersToken = this.headersVariable.set('Authorization', token)

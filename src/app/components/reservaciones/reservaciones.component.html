@@ -27,7 +27,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-12 col-md-6 py-3" >
+    <div class="col-12 col-md-6 py-3" *ngFor="let reserva of ReservasModelGet">
 
       <div class="card text-center" >
         <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80);">
@@ -35,22 +35,8 @@
         <div class="card-content">
             <h2 class="card-title"></h2>
             <p><b>Habitación:</b> Individual C-19</p>
-            <p><b>Fecha Inicio:</b> 12/2/2022</p>
-            <p><b>Fecha Final:</b> 24/2/2022</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-6 py-3" >
-
-      <div class="card text-center" >
-        <div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80);">
-        </div>
-        <div class="card-content">
-            <h2 class="card-title"></h2>
-            <p><b>Habitación:</b> Individual C-19</p>
-            <p><b>Fecha Inicio:</b> 12/2/2022</p>
-            <p><b>Fecha Final:</b> 24/2/2022</p>
+            <p><b>Fecha Inicio:</b> {{stringAsDate(reserva.fechaInicio) | date:'dd/MM/yy' }}</p>
+            <p><b>Fecha Final:</b> {{stringAsDate(reserva.fechaFin) | date:'dd/MM/yy' }}</p>
         </div>
       </div>
     </div>
