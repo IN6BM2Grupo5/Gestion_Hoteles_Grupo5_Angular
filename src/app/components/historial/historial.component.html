@@ -31,16 +31,16 @@
     <div class="title h1 text-center">Hoteles:</div>
 
     <!-- Card de Habitaciones -->
-    <div class="card">
+    <div class="card" *ngFor="let habitacion of historialHabitaciones">
       <div class="row ">
         <div class="col-md-7 px-3">
           <div class="card-block px-6">
             <h4 class="card-title">Hotel Hilton</h4>
             <p class="card-text">
-              Habitación Individual C-19
+              {{habitacion.tipo}}
             </p>
             <p class="card-text">
-              Costo por noche: Q1000.00
+              Costo: Q {{habitacion.precio | number: '1.2-2'}}
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@
     <div class="title h1 text-center">Servicios:</div>
 
     <!-- Card de Servicios -->
-    <div class="card mb-3">
+    <div class="card mb-3"  *ngFor="let servicio of historialServicios">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="../../../assets/img/servicios.jpg" class="img-habitacion">
@@ -69,10 +69,10 @@
           <div class="card-body">
             <h5 class="card-title">Hotel Hilton</h5>
             <p class="card-text">
-              Limpieza
+              {{servicio.tipo}}
             </p>
             <p class="card-text">
-              Costo por servicio: Q500.00
+              Costo por servicio: Q {{servicio.precio | number: '1.2-2'}}
             </p>
           </div>
         </div>

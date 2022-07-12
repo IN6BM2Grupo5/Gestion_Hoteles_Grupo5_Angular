@@ -24,44 +24,28 @@
             <p class="my-5 mx-5 titulo-login">Facturación</p>
             <div class="row">
               <ul class="list-unstyled">
-                <li class="text-black">Brandon Palma</li>
-                <li class="text-muted mt-1"><span class="text-black">Factura</span> #12345</li>
-                <li class="text-black mt-1">April 17 2021</li>
+                <li class="text-black">{{usuariofacturar.nombre}}</li>
+                <li class="text-muted mt-1"><span class="text-black">Factura</span> #{{numeroFactura}}</li>
+                <li class="text-black mt-1">{{getformattedDate() | date: 'longDate'}}</li>
               </ul>
               <hr>
+              <hr>
+            </div>
+            <div class="row" *ngFor="let cuenta of UsuariosModelGet">
               <div class="col-xl-10">
-                <p>Habitación C-19</p>
+                <p *ngIf="cuenta.fechaFin!=null">{{cuenta.descripcion}}</p>
+                <p *ngIf="cuenta.fechaFin==null">servicio - {{cuenta.descripcion}}</p>
               </div>
               <div class="col-xl-2">
-                <p class="float-end">Q5100.00
+                <p class="float-end">Q{{cuenta.precio | number: '1.2-2'}}
                 </p>
               </div>
               <hr>
-            </div>
-            <div class="row">
-              <div class="col-xl-10">
-                <p>Servicio - Limpieza</p>
-              </div>
-              <div class="col-xl-2">
-                <p class="float-end">Q300.00
-                </p>
-              </div>
-              <hr>
-            </div>
-            <div class="row">
-              <div class="col-xl-10">
-                <p>Servicio - Comida</p>
-              </div>
-              <div class="col-xl-2">
-                <p class="float-end">Q100.00
-                </p>
-              </div>
-              <hr style="border: 2px solid black;">
             </div>
             <div class="row text-black">
 
               <div class="col-xl-12">
-                <p class="float-end fw-bold">Total: Q1500.00
+                <p class="float-end fw-bold">Total: Q{{usuariofacturar.total | number: '1.2-2'}}
                 </p>
               </div>
               <hr style="border: 2px solid black;">
@@ -69,7 +53,7 @@
 
 
             <div class="margen">
-              <button type="button" class="btn btn-info" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLink="/reservaciones" routerLinkActive="active"
+              <button type="button" class="btn btn-info" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" routerLinkActive="active" (click)="Facturar()"
                 aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-fill" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z"/>
                 </svg>

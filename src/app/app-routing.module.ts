@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'reservaciones', component: ReservacionesComponent},
   { path: 'usuarios-hospedados', component: UsuariosHospedadosComponent},
   { path: 'habitaciones-disponibles', component: HabitacionesDisponiblesComponent},
-  { path: 'facturar', component: FacturacionComponent},
+  { path: 'facturar/:idUsuario', component: FacturacionComponent},
   ]},
 
   { path: '**', component: LoginComponent}

@@ -11,7 +11,9 @@ import { facturas } from 'src/app/models/facturas.model';
   providers: [UsuariosService, HotelesService]
 })
 export class HistorialComponent implements OnInit {
-  public FacturasModelGet: facturas;
+
+  historialServicios = []
+  historialHabitaciones = []
   constructor(    private _UsuariosService: UsuariosService,     private _HotelesService: HotelesService) { }
 
   ngOnInit(): void {
@@ -21,9 +23,19 @@ export class HistorialComponent implements OnInit {
   getHistorial(){
     this._HotelesService.verHistorial(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
-          this.FacturasModelGet = response.historial;
 
-          console.log(response.historial)
+          for(let i = 0; i < response.historial.length; i++){
+            for(let j = 0; j < response.historial[i].cuenta.length; j++){
+              if(response.historial[i].cuenta[j].fechaFin==null){
+                this.historialServicios.push(response.historial[i].cuenta[j]);
+              }else{
+                this.historialHabitaciones.push(response.historial[i].cuenta[j]);
+              }
+
+            }
+          }
+
+          console.log(this.historialHabitaciones)
       },
       (error) => {
         Swal.fire({
