@@ -32,11 +32,11 @@
                   <div class="form-group">
                     <label for="nombre" class="sr-only">Nombre</label>
                   </div>
-                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="usuarioModel.nombre">
+                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="usuarioModel.nombre" autocomplete="off">
                   <div class="form-group">
                     <label for="usuario" class="sr-only">Usuario</label>
                   </div>
-                  <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" [(ngModel)]="usuarioModel.usuario">
+                  <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" [(ngModel)]="usuarioModel.usuario" autocomplete="off">
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" [(ngModel)]="usuarioModel.password">
