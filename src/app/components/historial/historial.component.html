@@ -35,13 +35,16 @@
       <div class="row ">
         <div class="col-md-7 px-3">
           <div class="card-block px-6">
-            <h4 class="card-title">Hotel Hilton</h4>
+            <h4 class="card-title">{{habitacion.hotel}}</h4>
             <p class="card-text">
-              {{habitacion.tipo}}
+              {{habitacion.descripcion}}
             </p>
             <p class="card-text">
               Costo: Q {{habitacion.precio | number: '1.2-2'}}
             </p>
+            <b class="card-text">
+             del {{stringAsDate(habitacion.fechaInicio) | date:'dd-MM-yy'}} al {{stringAsDate(habitacion.fechaFin) | date:'dd-MM-yy'}}
+            </b>
           </div>
         </div>
         <div class="col-md-5">
@@ -67,13 +70,19 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Hotel Hilton</h5>
+            <h5 class="card-title"> {{servicio.hotel}}</h5>
             <p class="card-text">
-              {{servicio.tipo}}
+              {{servicio.descripcion}}
+            </p>
+            <p class="card-text">
+              habitacion: {{servicio.habitacion}}
             </p>
             <p class="card-text">
               Costo por servicio: Q {{servicio.precio | number: '1.2-2'}}
             </p>
+            <b class="card-text">
+              pedido el {{stringAsDate(servicio.fechaFin) | date:'dd-MM-yy'}}
+             </b>
           </div>
         </div>
       </div>

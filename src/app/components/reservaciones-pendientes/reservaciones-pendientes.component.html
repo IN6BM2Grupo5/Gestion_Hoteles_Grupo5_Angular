@@ -58,7 +58,7 @@
         <th scope="row">1</th>
         <td>{{cuenta.descripcion}}</td>
         <td>Q{{cuenta.precio | number: '1.2-2'}}</td>
-        <td>{{cuenta.idHabitacion}}</td>
+        <td>{{cuenta.habitacion}}</td>
         <td>{{ stringAsDate(cuenta.fechaInicio) | date:'dd-MM-yy' }}</td>
         <td *ngIf="cuenta.fechaFin != null">{{ stringAsDate(cuenta.fechaFin) | date:'dd-MM-yy' }}</td>
         <td *ngIf="cuenta.fechaFin == null"></td>

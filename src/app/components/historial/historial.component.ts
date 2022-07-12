@@ -35,7 +35,7 @@ export class HistorialComponent implements OnInit {
             }
           }
 
-          console.log(this.historialHabitaciones)
+          console.log(this.historialServicios)
       },
       (error) => {
         Swal.fire({
@@ -46,6 +46,11 @@ export class HistorialComponent implements OnInit {
       }
     )
   }
+
+
+  stringAsDate(dateStr: string) {
+    return new Date(dateStr);
+}
 
 
 }
