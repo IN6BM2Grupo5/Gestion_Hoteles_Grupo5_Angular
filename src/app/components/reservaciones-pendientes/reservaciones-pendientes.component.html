@@ -62,7 +62,7 @@
         <td>{{ stringAsDate(cuenta.fechaInicio) | date:'dd-MM-yy' }}</td>
         <td *ngIf="cuenta.fechaFin != null">{{ stringAsDate(cuenta.fechaFin) | date:'dd-MM-yy' }}</td>
         <td *ngIf="cuenta.fechaFin == null"></td>
-        <td><button type="button" class="mt-auto btn btn-danger boton" (click)="cancelarReserva(cuenta.descripcion)">Cancelar</button></td>
+        <td><button type="button" class="mt-auto btn btn-danger boton" (click)="cancelarReserva(cuenta.descripcion, cuenta._id)">Cancelar</button></td>
       </tr>
     </tbody>
   </table>

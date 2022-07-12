@@ -44,9 +44,9 @@ export class HotelesService {
   }
 
 
-  cancelar(id: String, token): Observable<any>{
+  cancelar(descripcion: String, id: String, token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
-    return this._http.put(this.url + '/cancelarReserva/'+id,"" ,{ headers: headersToken })
+    return this._http.put(this.url + '/cancelarReserva/'+descripcion+"/"+id,"" ,{ headers: headersToken })
   }
 
   obtenerHabitaciones(token, id?:String): Observable<any>{
@@ -55,6 +55,11 @@ export class HotelesService {
       id = ""
     }
     return this._http.get(this.url + '/habitaciones/'+id, { headers: headersToken })
+  }
+
+  obtenerHabitacionesRegistradas(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+    return this._http.get(this.url + '/habitaciones', { headers: headersToken })
   }
 
   obtenerEventos(token, id?:String): Observable<any>{
