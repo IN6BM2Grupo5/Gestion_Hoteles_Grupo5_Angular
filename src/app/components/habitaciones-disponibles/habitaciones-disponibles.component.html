@@ -39,7 +39,8 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">Habitación {{habitacion.tipo}}</h5>
-              <p class="card-text estado">{{habitacion.estado}}</p>
+              <p *ngIf="habitacion.estado=='Disponible'" class="card-text estado">{{habitacion.estado}}</p>
+              <p style="color:red" *ngIf="habitacion.estado=='Reservado'" class="card-text estado">{{habitacion.estado}}</p>
             </div>
           </div>
         </div>
