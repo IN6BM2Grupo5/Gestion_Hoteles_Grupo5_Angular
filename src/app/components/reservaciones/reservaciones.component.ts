@@ -26,7 +26,7 @@ export class ReservacionesComponent implements OnInit {
   getReservas(){
     this._HotelesService.verReservas(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
-          this.ReservasModelGet = response.reservas;
+          this.ReservasModelGet = response.reservas.sort((a, b) => Date.parse(b.fechaInicio) - Date.parse(a.fechaInicio));
 
           console.log(response.reservas)
       },

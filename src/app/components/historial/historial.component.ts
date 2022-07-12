@@ -28,8 +28,10 @@ export class HistorialComponent implements OnInit {
             for(let j = 0; j < response.historial[i].cuenta.length; j++){
               if(response.historial[i].cuenta[j].fechaFin==null){
                 this.historialServicios.push(response.historial[i].cuenta[j]);
+                this.historialServicios.sort((a, b) => Date.parse(b.fechaInicio) - Date.parse(a.fechaInicio))
               }else{
                 this.historialHabitaciones.push(response.historial[i].cuenta[j]);
+                this.historialHabitaciones.sort((a, b) => Date.parse(b.fechaInicio) - Date.parse(a.fechaInicio))
               }
 
             }
